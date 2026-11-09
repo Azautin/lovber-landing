@@ -1,0 +1,720 @@
+/* Secciones y maquetas de la app actual: pantallas (Screens.jsx), bento, Recuerdos, Juegos y Precios. */
+
+/* ---------- Maquetas de la app ---------- */
+.mini-tab {
+  font-size: 7.5px;
+  left: 10px;
+  right: 10px;
+}
+.mini-tab div {
+  padding: 4px;
+}
+.talk-pill {
+  align-self: center;
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  background: var(--plum);
+  color: white;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-top: 12px;
+}
+.photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #3a2a38;
+}
+.photo svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: filter 0.5s ease;
+}
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.stack {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-style: normal;
+  font-size: 7.5px;
+  font-weight: 800;
+  color: white;
+  background: rgba(46, 28, 40, 0.75);
+  border-radius: 999px;
+  padding: 2px 5px;
+}
+
+/* Mundo */
+.world-profile {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.world-profile > div {
+  flex: 1;
+  min-width: 0;
+}
+.world-profile b {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.world-profile small {
+  display: block;
+  font-size: 8.5px;
+  color: var(--soft);
+  line-height: 1.3;
+}
+.world-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--peach);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 16px;
+}
+.world-gear {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+}
+.world-pills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.world-pills > div {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 14px;
+  padding: 7px 9px;
+  display: grid;
+  gap: 1px;
+}
+.world-pills small {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  font-size: 6.5px;
+  letter-spacing: 0.12em;
+  color: var(--soft);
+}
+.world-pills b {
+  font-size: 11.5px;
+  font-weight: 800;
+}
+.world-pills span {
+  font-size: 8px;
+  color: var(--soft);
+}
+.world-cycle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px dashed #e3cfc4;
+  border-radius: 14px;
+  padding: 7px 10px;
+}
+.world-cycle b {
+  display: block;
+  font-size: 10px;
+}
+.world-cycle small {
+  font-size: 7.5px;
+  color: var(--soft);
+}
+.world-label {
+  font-size: 7.5px;
+  letter-spacing: 0.16em;
+  color: var(--soft);
+  margin-bottom: -6px;
+}
+.note-list {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.note-list > div + div .note-row {
+  border-top: 1px solid var(--line);
+}
+.note-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+}
+.note-ico {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.note-txt {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+}
+.note-txt b {
+  font-size: 10.5px;
+}
+.note-txt small {
+  font-size: 8.5px;
+  color: var(--soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.note-row em {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10px;
+}
+.note-chev {
+  color: var(--muted);
+}
+.note-hl .note-row {
+  background: #fdf0f4;
+}
+.how-toast-float {
+  position: absolute;
+  left: 50%;
+  bottom: 76px;
+  white-space: nowrap;
+  box-shadow: 0 10px 22px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Recuerdos (pantalla) */
+.memories-page {
+  padding-inline: 0;
+  gap: 8px;
+}
+
+/* ---------- Bento ---------- */
+.card-notes .note-row {
+  padding: 10px 14px;
+  gap: 12px;
+}
+.card-notes .note-ico {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+}
+.card-notes .note-txt b {
+  font-size: 14px;
+}
+.card-notes .note-txt small {
+  font-size: 12.5px;
+}
+.card-notes .note-row em {
+  font-size: 13px;
+}
+.cal {
+  display: grid;
+  gap: 12px;
+}
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.cal-days button {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 8px 0 12px;
+  border-radius: 999px;
+  transition: background-color 0.25s, color 0.25s;
+}
+.cal-days small {
+  font-size: 11px;
+  color: var(--soft);
+  font-weight: 700;
+}
+.cal-days b {
+  font-size: 16px;
+}
+.cal-days i {
+  position: absolute;
+  bottom: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+.cal-days .today {
+  outline: 1.5px dashed var(--muted);
+  outline-offset: -3px;
+}
+.cal-days button:hover {
+  background: #f6eee8;
+}
+.cal-days .on,
+.cal-days .on:hover {
+  background: var(--plum);
+  color: white;
+}
+.cal-days .on small {
+  color: #e8d6e0;
+}
+.cal-days .on i {
+  background: white;
+}
+.cal-day {
+  background: #f2e9e2;
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: grid;
+  gap: 2px;
+}
+.cal-day b {
+  font-size: 14.5px;
+}
+.cal-day span {
+  font-size: 12.5px;
+  color: var(--soft);
+}
+.cal-empty {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--coral);
+}
+
+/* ---------- Recuerdos: cuarto oscuro ---------- */
+.darkroom {
+  background: #241820;
+  color: #f6ece6;
+}
+.darkroom .lead {
+  color: #c9b6c1;
+}
+.darkroom h2 em {
+  font-style: normal;
+  color: var(--coral);
+}
+.darkroom-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+.darkroom-copy {
+  display: grid;
+  gap: 18px;
+}
+.darkroom-local {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  line-height: 1.45;
+  color: #d9c9d4;
+}
+.darkroom-local b {
+  color: white;
+}
+.darkroom-local svg {
+  color: var(--coral);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.darkroom-photo {
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+}
+.prints {
+  position: relative;
+  width: min(300px, 70vw);
+  aspect-ratio: 4 / 5.6;
+}
+.print {
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 40px 70px -30px rgba(0, 0, 0, 0.8);
+}
+.print-back {
+  scale: 0.86;
+  filter: brightness(0.75);
+}
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.5s ease;
+}
+.print-meta {
+  background: #fffcf9;
+  color: var(--ink);
+  min-height: 58px;
+  padding: 12px 14px 14px;
+  display: grid;
+  gap: 2px;
+}
+.print-meta small {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--soft);
+}
+.print-meta b {
+  font-size: 16px;
+}
+.films {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  padding: 5px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  width: min(420px, 100%);
+}
+.films button {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  padding: 8px 2px;
+  border-radius: 13px;
+  color: #c9b6c1;
+}
+.films button > :not(.film-pill) {
+  position: relative;
+}
+.films b {
+  font-size: 14px;
+}
+.films small {
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+}
+.films .on {
+  color: var(--plum);
+}
+.film-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 13px;
+  background: #fffcf9;
+}
+@media (max-width: 900px) {
+  .darkroom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Juegos: se reparte una carta ---------- */
+.band-games {
+  background: #f3edf5;
+}
+.games-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+.games-copy {
+  display: grid;
+  gap: 18px;
+}
+.games-copy h2 em {
+  font-style: normal;
+  color: var(--coral);
+}
+.games-grid {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+.games-count {
+  justify-self: start;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--soft);
+}
+.games-count b {
+  color: var(--coral);
+}
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.cover {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  padding: 8px 8px 12px;
+  border-radius: 22px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.cover b {
+  font-size: 15.5px;
+  padding-inline: 6px;
+  margin-top: 6px;
+}
+.cover small {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--soft);
+  padding-inline: 6px;
+}
+.cover-art {
+  height: clamp(96px, 13vh, 130px);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.cover-soon {
+  background: transparent;
+  border: 2px dashed #d8c6d4;
+}
+.cover-soon .cover-art {
+  background: rgba(255, 255, 255, 0.5);
+}
+.soon-plus {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--plum);
+  color: white;
+  display: grid;
+  place-items: center;
+}
+/* Portadas */
+.art-match {
+  position: relative;
+  width: 70px;
+  height: 80px;
+}
+.art-match .mc {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: #fffcf9;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  box-shadow: 0 10px 18px -10px rgba(75, 48, 67, 0.6);
+}
+.art-match .back {
+  rotate: -10deg;
+  opacity: 0.8;
+}
+.art-match i {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: #e5546e;
+}
+.art-card {
+  width: 62px;
+  height: 84px;
+  border-radius: 12px;
+  background: #fffcf9;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 18px -10px rgba(75, 48, 67, 0.6);
+}
+.art-card span {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--coral);
+}
+.art-wheel {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.art-wheel svg {
+  width: 88px;
+  height: 88px;
+  filter: drop-shadow(0 8px 12px rgba(75, 48, 67, 0.35));
+}
+.art-arrow {
+  position: absolute;
+  top: -6px;
+  z-index: 1;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 11px solid var(--plum);
+}
+.art-split {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.art-split span {
+  flex: 1 1 0;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+}
+.art-split span:first-child {
+  background: rgba(255, 255, 255, 0.35);
+}
+.art-split b {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--paper);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+.art-question span {
+  display: block;
+  max-width: 150px;
+  background: #fffcf9;
+  border-radius: 14px 14px 14px 4px;
+  padding: 8px 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  box-shadow: 0 10px 18px -10px rgba(75, 48, 67, 0.5);
+}
+@media (max-width: 900px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .shelf {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+/* ---------- Precios: tres planes ---------- */
+.plans-3 {
+  grid-template-columns: 1fr 1.08fr 1fr;
+  max-width: 980px;
+  align-items: center;
+}
+.plans-3 .plan {
+  text-align: center;
+  align-items: center;
+}
+.plans-3 .plan.featured {
+  padding-block: 46px;
+}
+.plans-3 .price {
+  justify-content: center;
+}
+.plans-3 .btn {
+  width: 100%;
+}
+.plan-soon {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.7;
+  margin-top: -8px;
+}
+@media (max-width: 900px) {
+  .plans-3 {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}
+
+/* La tarjeta flotante del hero no tapa la burbuja del personaje. */
+.floaty-a {
+  top: 400px;
+}
+@media (max-width: 560px) {
+  .prints {
+    width: 200px;
+  }
+}
+
+/* ---------- Una sección = una pantalla ----------
+   Cada diapositiva ocupa al menos el alto de la ventana y centra su contenido,
+   así nunca asoma la sección siguiente. El relleno superior deja sitio a la barra. */
+main > section:not(.how):not(.cta-band) {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 96px 48px;
+}
+.cta {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bento-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.game {
+  padding-bottom: 18px;
+}
+@media (max-width: 900px) {
+  .bento-3 {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+}
+/* Pantallas bajas de escritorio: todo un poco más compacto para que quepa. */
+@media (min-width: 901px) and (max-height: 820px) {
+  main > section:not(.how):not(.cta-band) {
+    padding-block: 84px 32px;
+  }
+  main > section h2 {
+    font-size: clamp(30px, 4vw, 44px);
+  }
+  .game-play {
+    height: 190px;
+  }
+}
+.darkroom-local {
+  justify-self: start;
+}
+.darkroom-photo {
+  gap: 36px;
+}
+.print-meta b {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

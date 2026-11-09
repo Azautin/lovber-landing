@@ -1,0 +1,254 @@
+/* Capa de movimiento y acabado. Va después de styles.css y lo afina. */
+
+/* Framer Motion mueve estos elementos: que el CSS no pelee con él por `transform`. */
+.card,
+.plan,
+.store-badge,
+.nav .btn,
+.game {
+  transition-property: box-shadow, background-color, border-color, color, opacity;
+}
+.card:hover {
+  transform: none;
+}
+
+/* Titulares enmascarados (Heading) */
+.w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.1em 0.04em 0.16em;
+  margin: -0.1em -0.04em -0.16em;
+}
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+/* Barra de progreso de lectura */
+.progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 80;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--coral), #c9708a 55%, var(--plum));
+}
+
+/* Nav: flotante en el inicio, de borde a borde en el resto; tema oscuro sobre secciones oscuras */
+.nav-inner {
+  transition-property: width, padding, border-radius, background-color, border-color, box-shadow, color;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav.docked {
+  inset: 0 0 auto;
+}
+.nav.docked .nav-inner {
+  width: 100%;
+  border-radius: 0;
+  padding: 12px max(20px, calc((100% - 1120px) / 2));
+  background: rgba(255, 252, 249, 0.9);
+  border-color: transparent;
+  border-bottom-color: var(--line);
+  box-shadow: 0 8px 24px -18px rgba(75, 48, 67, 0.45);
+}
+.nav.dark .nav-inner {
+  background: rgba(46, 28, 40, 0.82);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+.nav.dark .nav-links {
+  color: rgba(255, 255, 255, 0.65);
+}
+.nav.dark .nav-links a:hover,
+.nav.dark .nav-links a.on {
+  color: white;
+}
+.nav.dark .nav-pill {
+  background: rgba(255, 255, 255, 0.12);
+}
+.nav.dark .btn-primary {
+  background: var(--coral);
+}
+.nav-links a {
+  position: relative;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: color 0.25s;
+}
+.nav-links a span:not(.nav-pill) {
+  position: relative;
+  z-index: 1;
+}
+.nav-links a.on {
+  color: var(--plum);
+}
+.nav-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--peach);
+}
+
+/* Volver arriba */
+.to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: var(--plum);
+  box-shadow: 0 12px 28px -10px rgba(75, 48, 67, 0.6);
+}
+
+/* Cinta de promesas */
+.marquee {
+  overflow: hidden;
+  padding-block: 22px;
+  border-block: 1px solid var(--line);
+  background: var(--paper);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-row {
+  display: flex;
+  flex-shrink: 0;
+  list-style: none;
+  padding: 0;
+}
+.marquee-row li {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-inline: 28px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--soft);
+  white-space: nowrap;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Tarjetas: foco de luz que sigue al cursor */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+  background: radial-gradient(
+    380px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(248, 229, 217, 0.85),
+    transparent 62%
+  );
+}
+.card:hover::before {
+  opacity: 1;
+}
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gesto del día (antes con estilos en línea) */
+.gesture {
+  background: #f2e9e2;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.gesture small {
+  letter-spacing: 0.12em;
+  color: #887780;
+  font-weight: 700;
+}
+.gesture > div > div {
+  font-weight: 800;
+  font-size: 17px;
+}
+.gesture-done {
+  background: white;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Brillo suave en la insignia */
+.plan .badge {
+  overflow: hidden;
+}
+.plan .badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: shine 3.8s ease-in-out infinite 1.2s;
+}
+@keyframes shine {
+  60%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+/* Preguntas */
+.faq-item {
+  transition: background-color 0.3s;
+}
+.faq-item.open {
+  background-color: rgba(248, 229, 217, 0.35);
+}
+
+/* Corazones de la llamada final */
+.cta-heart {
+  position: absolute;
+  bottom: -20px;
+  display: block;
+  pointer-events: none;
+}
+.cta > :not(.cta-heart) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Detalles de acabado */
+::selection {
+  background: var(--peach);
+  color: var(--plum);
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan .badge::after,
+  .cta-heart {
+    display: none;
+  }
+}
